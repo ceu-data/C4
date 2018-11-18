@@ -21,6 +21,7 @@ library(ggplot2)
 
 short_story <- readLines('short_story.txt') # read the file
 length(short_story) # check how long it is
+short_story
 a <- detect_sentiment(short_story[1]) # get sentiment from the first line
 a # it is a dataframe
 a$Sentiment # overall sentiment
@@ -53,9 +54,19 @@ data_frame(positive_vector, negative_vector, sentiment_vector) %>%
   ylab("negative sentiments")
 
 
+
+
 # TO DO: Find a better way to make the dataframe:
 
 
 
+# ...and plot the scores
+
+
+
+
+
+
+# https://www.tidytextmining.com/
 
 ################################# end of A Game of Sentiments ######################
