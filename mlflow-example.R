@@ -1,10 +1,10 @@
 install.packages("mlflow")
 
-student_id = "<<YOUR STUDENT ID>>"
+student_id = "404375"
 library(mlflow)
 
 scatter.smooth(x=cars$speed, y=cars$dist, main="Dist ~ Speed")  # scatterplot
-mlflow_set_tracking_uri("http://mlflow.datapao.com:5000")
+mlflow_set_tracking_uri("http://mlflow.datapao.com")
 mlflow_end_run() # Just to be sure
 mlflow_start_run(source_name = paste(paste("lm_traintest_08-",student_id,sep="0"))) # Don't use spaces here
 
@@ -19,10 +19,10 @@ training <- cars[trainingRowIndex, ]  # model training data
 test  <- cars[-trainingRowIndex, ]   # test data
 
 set.seed(seed)
-lmMod <- lm(dist ~ speed, data=trainingData) # train model
+lmMod <- lm(dist ~ speed, data=training) # train model
 summary(lmMod)
 
-pred <- predict(lmMod, testData)  # predict distance
+pred <- predict(lmMod, test)  # predict distance
 rmse <- function(m, o) sqrt(mean((m - o)^2))
 testRMSE = rmse(pred, test)
 testRMSE
