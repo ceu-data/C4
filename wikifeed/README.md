@@ -1,8 +1,8 @@
 # How to create a Wikipedia Kinesis stream
 
 1. Create an EC2 instance. Choose the `Amazon AMI` (Not the 2nd generation as it won't have the `aws-kinesis-agent` installed
-2. Install the amazon kinesis agent: `sudo yum install aws-kinesis-agent`
-3. `pip3 install sseclient`
+2. Install the amazon kinesis agent: `sudo yum install aws-kinesis-agent python36-pip`
+3. `sudo pip3 install sseclient`
 4. `python3 wiki.py | tee -a /tmp/wiki.log`
 
 Then, set up the Kinesis feeder:
